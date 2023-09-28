@@ -1,18 +1,29 @@
 ```mermaid
-graph LR
-    subgraph Browser
-        click(Save Button)
-        input[User Writes Something]
-    end
+sequenceDiagram
+    participant browser
+    participant server
+    participant database
 
-    subgraph Server
-        db(Database)
-    end
+    browser->>server: POST https://studies.cs.helsinki.fi/exampleapp/new_note
+    activate server
+    server->>database: Create new note in the database
+    activate database
+    database-->>server: Note created successfully
+    deactivate database
+    server-->>browser: Note creation response
+    deactivate server
 
-    click -->|1. User interaction| input
-    input -->|2. Submit Data| click
-    click -->|3. Send Data to Server| db
-    db -->|4. Store Data| db
-    db -->|5. Respond with Confirmation| click
-    click -->|6. Update UI| input
+    Note right of browser: The user enters note text and clicks Save
+
+    browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/notes
+    activate server
+    server->>database: Retrieve updated notes from the database
+    activate database
+    database-->>server: Retrieved notes data
+    deactivate database
+    server-->>browser: Updated notes HTML
+    deactivate server
+
+    Note right of browser: The browser updates the page with the new note
+
 ```
