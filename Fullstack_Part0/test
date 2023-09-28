@@ -1,5 +1,5 @@
 ```mermaid
-graph LR
+sequenceDiagram
     subgraph Browser
         click(Save Button)
         input[User Writes Something]
@@ -16,3 +16,4 @@ graph LR
     db -->|5. Respond with Confirmation| click
     click -->|6. Update UI| input
 ```
+ 
