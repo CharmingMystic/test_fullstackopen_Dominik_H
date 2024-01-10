@@ -2,7 +2,7 @@
 import axios from "axios";
 
 // Adres bazowy dla API z osobami
-const baseUrl = "/api/persons";
+const baseUrl = "/components/persons";
 
 // Funkcja pobierająca wszystkie osoby
 const getAll = () => {
@@ -12,13 +12,15 @@ const getAll = () => {
   return data.then((response) => response.data);
 };
 
-// Funkcja dodająca nową osobę
 const createPerson = (newObject) => {
-  // Wywołanie żądania POST do API z nowymi danymi osoby
-  const data = axios.post(baseUrl, newObject);
-  // Zwrócenie danych jako obietnicy
-  return data.then((response) => response.data);
-};
+	console.log("Przed wysłaniem żądania:", newObject);
+	const data = axios.post(baseUrl, newObject);
+	return data.then((response) => {
+	  console.log("Odpowiedź po wysłaniu żądania:", response.data);
+	  return response.data;
+	});
+  };
+  
 
 // Funkcja aktualizująca dane osoby
 const updatePerson = (id, newObject) => {

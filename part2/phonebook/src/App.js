@@ -18,7 +18,7 @@ const App = () => {
 	// Funkcja do obsługi formularza dodawania i edycji osoby w książce telefonicznej
 	function submitForm(e) {
 		e.preventDefault();  // Zapobiega domyślnej akcji formularza
-
+console.log("test")
 		// Sprawdza, czy osoba już istnieje w książce telefonicznej
 		if (!persons.some((person) => person.name === newName)) {
 			// Dodaje nową osobę do książki telefonicznej
@@ -135,7 +135,7 @@ const App = () => {
 				<Notification status={notification.status} message={notification.msg} />
 			)}
 			<Filter search={search} persons={persons} setSearch={setSearch} />
-			<h3>Add new</h3>
+			<h3>Dodaj</h3>
 			<PersonForm
 				newName={newName}
 				newNumber={newNumber}
@@ -143,7 +143,7 @@ const App = () => {
 				setNewName={setNewName}
 				setNewNumber={setNewNumber}
 			/>
-			<h3>Numbers</h3>
+			<h3>Numery</h3>
 			<Persons persons={persons} deletePerson={deletePerson} />
 		</div>
 	);
