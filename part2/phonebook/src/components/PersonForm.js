@@ -6,11 +6,11 @@ const PersonForm = ({ newName, setNewName, newNumber, setNewNumber }) => {
       <form>
         {/* Pole tekstowe do wprowadzania imienia, związane z wartością newName */}
         <div>
-          name: <input value={newName} onChange={(event) => setNewName(event.target.value)} />
+          imie: <input value={newName} onChange={(event) => setNewName(event.target.value)} />
         </div>
         {/* Pole tekstowe do wprowadzania numeru, związane z wartością newNumber */}
         <div>
-          number: <input value={newNumber} onChange={(e) => setNewNumber(e.target.value)} />
+          numer: <input value={newNumber} onChange={(e) => setNewNumber(e.target.value)} />
         </div>
         {/* Przycisk do dodawania nowej osoby */}
         <div>
