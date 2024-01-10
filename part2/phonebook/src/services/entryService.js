@@ -2,7 +2,7 @@
 import axios from "axios";
 
 // Adres bazowy dla API z osobami
-const baseUrl = "/components/persons";
+const baseUrl = "/api/persons";
 
 // Funkcja pobierająca wszystkie osoby
 const getAll = () => {
