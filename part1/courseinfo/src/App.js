@@ -10,7 +10,7 @@ const Part = (props) => {
 	return (
 		<p>
 			<strong>{props.part.name}: </strong>
-			{props.part.exercises} Exercises
+			{props.part.exercises} tekst
 		</p>
 	);
 };
@@ -18,6 +18,7 @@ const Part = (props) => {
 const Content = (props) => {
 	return (
 		<div>
+			{/* Wyświetlenie trzech komponentów Part, reprezentujących poszczególne części kursu */}
 			<Part part={props.parts[0]} />
 			<Part part={props.parts[1]} />
 			<Part part={props.parts[2]} />
@@ -28,7 +29,8 @@ const Content = (props) => {
 const Total = (props) => {
 	return (
 		<p>
-			<strong>Number of Exercises: </strong>
+			{/* Wyświetlenie całkowitej liczby ćwiczeń w kursie */}
+			<strong>tekst: </strong>
 			{props.parts.reduce(
 				(accumulator, current) => accumulator + current.exercises,
 				0
@@ -38,28 +40,32 @@ const Total = (props) => {
 };
 
 const App = () => {
+	// Obiekt reprezentujący kurs
 	const course = {
-		name: "Half Stack application development",
+		name: "Aplikacje",
 		parts: [
 			{
-				name: "Fundamentals of React",
-				exercises: 10,
+				name: "tekst",
+				exercises: 11,
 			},
 			{
-				name: "Using props to pass data",
-				exercises: 7,
+				name: "tekst",
+				exercises: 11,
 			},
 			{
-				name: "State of a component",
-				exercises: 14,
+				name: "tekst",
+				exercises: 11,
 			},
 		],
 	};
 
 	return (
 		<div>
+			{/* Renderowanie komponentu Header z nazwą kursu */}
 			<Header course={course.name} />
+			{/* Renderowanie komponentu Content z podziałem na poszczególne części kursu */}
 			<Content parts={course.parts} />
+			{/* Renderowanie komponentu Total z całkowitą liczbą ćwiczeń w kursie */}
 			<Total parts={course.parts} />
 		</div>
 	);
