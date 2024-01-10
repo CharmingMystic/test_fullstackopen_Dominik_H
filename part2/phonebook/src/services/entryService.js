@@ -1,31 +1,48 @@
+// Import modułu axios do obsługi żądań HTTP
 import axios from "axios";
+
+// Adres bazowy dla API z osobami
 const baseUrl = "/api/persons";
 
+// Funkcja pobierająca wszystkie osoby
 const getAll = () => {
-	const data = axios.get(baseUrl);
-	return data.then((response) => response.data);
+  // Wywołanie żądania GET do API
+  const data = axios.get(baseUrl);
+  // Zwrócenie danych jako obietnicy
+  return data.then((response) => response.data);
 };
 
+// Funkcja dodająca nową osobę
 const createPerson = (newObject) => {
-	const data = axios.post(baseUrl, newObject);
-	return data.then((response) => response.data);
+  // Wywołanie żądania POST do API z nowymi danymi osoby
+  const data = axios.post(baseUrl, newObject);
+  // Zwrócenie danych jako obietnicy
+  return data.then((response) => response.data);
 };
 
+// Funkcja aktualizująca dane osoby
 const updatePerson = (id, newObject) => {
-	const data = axios.put(`${baseUrl}/${id}`, newObject);
-	return data.then((response) => response.data);
+  // Wywołanie żądania PUT do API z zaktualizowanymi danymi osoby
+  const data = axios.put(`${baseUrl}/${id}`, newObject);
+  // Zwrócenie danych jako obietnicy
+  return data.then((response) => response.data);
 };
 
+// Funkcja usuwająca osobę
 const deletePerson = (id, obj) => {
-	const data = axios.delete(`${baseUrl}/${id}`, { data: obj });
-	return data.then((response) => response.data);
+  // Wywołanie żądania DELETE do API z identyfikatorem osoby do usunięcia
+  const data = axios.delete(`${baseUrl}/${id}`, { data: obj });
+  // Zwrócenie danych jako obietnicy
+  return data.then((response) => response.data);
 };
 
+// Obiekt usługi zawierający funkcje do obsługi danych o osobach
 const entryService = {
-	getAll,
-	createPerson,
-	updatePerson,
-	deletePerson,
+  getAll,
+  createPerson,
+  updatePerson,
+  deletePerson,
 };
 
+// Eksportowanie obiektu usługi entryService
 export default entryService;
